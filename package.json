@@ -18,8 +18,12 @@
   },
   "dependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
+    "@types/mysql": "^2.15.25",
     "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.2.1",
     "ts-node": "^10.9.2",
-    "tsc-init": "^2.1.0"
+    "tsc-init": "^2.1.0",
+    "typeorm": "^0.3.20"
   }
 }
