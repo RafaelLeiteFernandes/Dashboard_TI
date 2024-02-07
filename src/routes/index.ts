@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import * as TicketsController from '../controllers/Tickets.controller';
+import * as TicketsController from '../controllers/AllTickets.controller';
 
 
 const routes = Router();
 
-routes.get('/tickets', TicketsController.getAllTickets )//TodoController.getAllFreuencia);
+routes.get('/tickets', TicketsController.getAllTickets);
 
 export  {routes};
 

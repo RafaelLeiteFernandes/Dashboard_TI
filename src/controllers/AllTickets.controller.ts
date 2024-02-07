@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 
+
 export const getAllTickets = async (req: Request, res: Response) => {
   try {
     const list = await Tickets.findAll();
