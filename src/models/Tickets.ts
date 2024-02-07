@@ -4,6 +4,10 @@ import { sequelize } from '../instances/pg';
 export interface TickInstance extends Model {
   id: number;
   name: string;
+  date: Date;
+  closedate: Date;
+  status: number;
+  itilcategories_id:string;
 }
 
 export const Tickets = sequelize.define<TickInstance>('glpi_tickets', {
@@ -15,7 +19,20 @@ export const Tickets = sequelize.define<TickInstance>('glpi_tickets', {
   name: {
     type: DataTypes.STRING,
   },
+  date: {
+    type: DataTypes.DATE,
+  },
+  closedate: {
+    type: DataTypes.DATE,
+  },
+  status: {
+    type: DataTypes.INTEGER,
+  },
+  itilcategories_id: {
+    type: DataTypes.INTEGER,
+  }
+
 }, {
-  tableName: 'glpi_tickets', // Verifique se o nome da tabela está correto
+  tableName: 'glpi_tickets',
   timestamps: false,
 });
