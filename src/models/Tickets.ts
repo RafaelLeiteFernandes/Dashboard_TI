@@ -2,6 +2,7 @@ import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../instances/pg';
 
 export interface TickInstance extends Model {
+  quantidadeItens: number;
   id: number;
   name: string;
   date: Date;
