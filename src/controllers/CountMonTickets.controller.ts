@@ -1,4 +1,4 @@
-// MediaDiariaFechadosController.ts
+// Média diária
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 import { Sequelize, Op, literal } from 'sequelize';
