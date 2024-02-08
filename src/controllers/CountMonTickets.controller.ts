@@ -13,8 +13,10 @@ export const getDailyAverageClosedTickets = async (req: Request, res: Response) 
     // Consultar o banco de dados para obter o número total de chamados fechados
     const totalClosedTickets = await Tickets.count({
       where: {
-        status: 6, // Supondo que o status 6 representa chamados fechados
+        status: 6,
+        is_deleted: 0, // Supondo que o status 6 representa chamados fechados
       },
+       
     });
 
     // Determinar a data do primeiro chamado criado

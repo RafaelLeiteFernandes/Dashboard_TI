@@ -12,8 +12,10 @@ export const getTicketsByCategory = async (req: Request, res: Response) => {
   try {
     // Consultar o banco de dados para obter o número de chamados por motivo
     const ticketsByCategory = await Tickets.findAll({
+      
       attributes: ['itilcategories_id', [sequelize.fn('COUNT', '*'), 'count']],
       group: ['itilcategories_id'],
+      
     });
 
     // Retornar o resultado como resposta da requisição

@@ -12,11 +12,12 @@ const sequelize = new Sequelize(process.env.PG_DB as string, process.env.PG_USER
 export const getOpenTickets = async (req: Request, res: Response) => {
   try {
     // Consultar o banco de dados para buscar os tickets em aberto
-    const openTickets = await Tickets.findAll({
+    const openTickets = await Tickets.count({
       where: {
         status: {
           [Op.in]: [1, 2] // Supondo que os status 1 e 2 representam chamados em aberto
-        }
+        },
+        is_deleted: 0
       }
     });
 

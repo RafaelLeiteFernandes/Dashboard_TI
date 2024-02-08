@@ -14,20 +14,28 @@ const routes = Router();
 
 //base
 routes.get('/tickets', TicketsController.getAllTickets);
-// todos os fechados
+
+// contagem dos fechados
 routes.get('/alltickets',AllTickets.getSumOfTicketsClosed);
-// fechados na semana
+
+// fechados durante a semana
 routes.get('/ticketsweek', CloseWeek.getSumOfTicketsClosedThisWeek);
+
 // chamados em aberto
 routes.get('/openTickets', OpenTickets.getOpenTickets);
+
 // Chamados fechados por mês
 routes.get('/closeMon',CloseTicketsMon.getClosedTicketsByMonth);
+
 // chamados aberto na semana 
 routes.get('/openTicketsThisWeek',OpenTicketsWeek.getOpenTicketsThisWeek);
+
 // chamados criados hoje
 routes.get('/createtoday', Createatday.getTicketsCreatedToday);
-// media mensal
+
+// media mensal trazer somente de 2024
 routes.get('/dailyAverageClosedTickets', Media.getDailyAverageClosedTickets);
+
 // divisao por motivo
 routes.get('/ticketsByCategory', Description.getTicketsByCategory);
 
