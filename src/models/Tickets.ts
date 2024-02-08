@@ -9,6 +9,7 @@ export interface TickInstance extends Model {
   closedate: Date;
   status: number;
   itilcategories_id:string;
+  date_creation: Date;
 }
 
 export const Tickets = sequelize.define<TickInstance>('glpi_tickets', {
@@ -31,6 +32,9 @@ export const Tickets = sequelize.define<TickInstance>('glpi_tickets', {
   },
   itilcategories_id: {
     type: DataTypes.INTEGER,
+  },
+  date_creation: {
+    type: DataTypes.DATE,
   }
 
 }, {

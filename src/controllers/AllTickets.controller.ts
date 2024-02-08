@@ -1,3 +1,4 @@
+// Busca todos os tickets
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 

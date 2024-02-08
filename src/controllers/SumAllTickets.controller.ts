@@ -1,4 +1,5 @@
-// SituacaoSeisController.ts
+// Busca todos os tickets fechados e traz a soma
+
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 

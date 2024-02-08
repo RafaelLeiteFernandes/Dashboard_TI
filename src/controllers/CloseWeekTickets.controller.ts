@@ -1,4 +1,5 @@
-// FechadosNaSemanaController.ts
+// Busca todos os tickets fehcados na semana
+
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 import { Sequelize, Op } from 'sequelize';
