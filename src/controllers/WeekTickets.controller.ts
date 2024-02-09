@@ -21,7 +21,7 @@ export const getOpenTicketsThisWeek = async (req: Request, res: Response) => {
       where: {
         date_creation: {
           [Op.between]: [firstDayOfWeek, lastDayOfWeek],
-        },
+        }
       },
     });
 
