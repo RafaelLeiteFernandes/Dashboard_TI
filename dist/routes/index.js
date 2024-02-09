@@ -437,7 +437,8 @@ var getSumOfTicketsClosed = async (req, res) => {
   try {
     const countOfItems = await Tickets.count({
       where: {
-        status: 6
+        status: 6,
+        is_deleted: 0
       }
     });
     res.json({ countOfItems });
