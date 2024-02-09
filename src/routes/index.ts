@@ -33,12 +33,12 @@ routes.get('/openTicketsThisWeek',OpenTicketsWeek.getOpenTicketsThisWeek);
 // chamados criados hoje
 routes.get('/createtoday', Createatday.getTicketsCreatedToday);
 
-// media mensal trazer somente de 2024
-routes.get('/dailyAverageClosedTickets', Media.getDailyAverageClosedTickets);
-
 // divisao por motivo
 routes.get('/ticketsByCategory', Description.getTicketsByCategory);
 
+
+// media mensal trazer somente de 2024
+routes.get('/dailyAverageClosedTickets', Media.getDailyAverageClosedTickets);
 
 
 
