@@ -527,7 +527,7 @@ var getOpenTicketsThisWeek = async (req, res) => {
     const now = /* @__PURE__ */ new Date();
     const firstDayOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
     const lastDayOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() + 6);
-    const openTicketsThisWeek = await Tickets.findAll({
+    const openTicketsThisWeek = await Tickets.count({
       where: {
         date_creation: {
           [import_sequelize6.Op.between]: [firstDayOfWeek, lastDayOfWeek]
@@ -616,8 +616,8 @@ routes.get("/openTickets", getOpenTickets);
 routes.get("/closeMon", getClosedTicketsByMonth);
 routes.get("/openTicketsThisWeek", getOpenTicketsThisWeek);
 routes.get("/createtoday", getTicketsCreatedToday);
-routes.get("/dailyAverageClosedTickets", getDailyAverageClosedTickets);
 routes.get("/ticketsByCategory", getTicketsByCategory);
+routes.get("/dailyAverageClosedTickets", getDailyAverageClosedTickets);
 
 // src/server.ts
 var app = (0, import_express2.default)();

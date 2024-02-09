@@ -429,7 +429,7 @@ var getOpenTicketsThisWeek = async (req, res) => {
     const now = /* @__PURE__ */ new Date();
     const firstDayOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
     const lastDayOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() + 6);
-    const openTicketsThisWeek = await Tickets.findAll({
+    const openTicketsThisWeek = await Tickets.count({
       where: {
         date_creation: {
           [import_sequelize3.Op.between]: [firstDayOfWeek, lastDayOfWeek]
