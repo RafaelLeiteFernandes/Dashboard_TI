@@ -17,7 +17,7 @@ export const getOpenTicketsThisWeek = async (req: Request, res: Response) => {
     const lastDayOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() + 6);
 
     // Consultar o banco de dados para buscar os tickets abertos dentro desse período
-    const openTicketsThisWeek = await Tickets.findAll({
+    const openTicketsThisWeek = await Tickets.count({
       where: {
         date_creation: {
           [Op.between]: [firstDayOfWeek, lastDayOfWeek],
