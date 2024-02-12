@@ -1,4 +1,4 @@
-// ChamadosPorMotivoController.ts
+
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 import { Sequelize, Op } from 'sequelize';
@@ -25,3 +25,5 @@ export const getTicketsByCategory = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Erro ao buscar os chamados por motivo.' });
   }
 };
+
+
