@@ -1,4 +1,3 @@
-
 import { Request, Response } from 'express';
 import { Tickets } from '../models/Tickets';
 import { Sequelize, Op } from 'sequelize';
@@ -12,9 +11,10 @@ export const getTicketsByCategory = async (req: Request, res: Response) => {
   try {
     // Consultar o banco de dados para obter o número de chamados por motivo
     const ticketsByCategory = await Tickets.findAll({
-      
       attributes: ['itilcategories_id', [sequelize.fn('COUNT', '*'), 'count']],
       group: ['itilcategories_id'],
+      order: [[sequelize.literal('count'), 'DESC']], 
+      limit:10,
       
     });
 
@@ -25,5 +25,3 @@ export const getTicketsByCategory = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Erro ao buscar os chamados por motivo.' });
   }
 };
-
-
