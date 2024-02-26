@@ -11,7 +11,7 @@ const sequelize = new Sequelize(process.env.PG_DB as string, process.env.PG_USER
 
 export const getClosedTicketsByMonth = async (req: Request, res: Response) => {
   try {
-    // Consultar o banco de dados para buscar os tickets fechados por mês
+
     const closedTicketsByMonth = await Tickets.findAll({
       attributes: [
         [fn('YEAR', col('solvedate')), 'year'],
@@ -19,13 +19,14 @@ export const getClosedTicketsByMonth = async (req: Request, res: Response) => {
         [fn('COUNT', '*'), 'count']
       ],
       where: {
-        status: 6 // Supondo que o status 6 representa chamados fechados
+        status: 6,
       },
       group: [fn('YEAR', col('solvedate')), fn('MONTH', col('solvedate'))],
+      order: [fn('MONTH', col('solvedate'))],
+
       raw: true
     });
 
-    // Retornar os resultados como resposta da requisição
     res.json({ closedTicketsByMonth });
   } catch (error) {
     console.error('Erro ao buscar os chamados fechados por mês:', error);
